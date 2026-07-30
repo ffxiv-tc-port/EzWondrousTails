@@ -52,3 +52,5 @@ jobs:
           Expand-Archive -Force dalamud-pinned.zip "$env:AppData\xivlauncher\Addon\Hooks\dev\"
       - name: Build with dotnet
         run: dotnet build --configuration Release WondrousTailsSolver/WondrousTailsSolver.csproj -p:DalamudLibPath="$env:AppData\FFXIVSimpleLauncher\Dalamud\Injector\"
+
+# workflow 索引觸發：GitHub 只在 push 實際變動到 workflow 檔本身時才建索引。

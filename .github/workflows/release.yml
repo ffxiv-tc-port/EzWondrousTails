@@ -54,3 +54,5 @@ jobs:
             WondrousTailsSolver.zip
             WondrousTailsSolver/bin/Release/WondrousTailsSolver/WondrousTailsSolver.json
           generate_release_notes: true
+
+# workflow 索引觸發：GitHub 只在 push 實際變動到 workflow 檔本身時才建索引。
