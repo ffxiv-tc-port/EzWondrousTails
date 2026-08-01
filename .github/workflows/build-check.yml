@@ -1,6 +1,5 @@
 # 台服 (TC) 建置檢查（ezWondrousTails / InternalName: WondrousTailsSolver）。
 # Dalamud 釘在 API13 (dalamud-pin-v13.0.0.16)，外掛必須是 net9.0-windows7.0。
-# gate 會比對 VersionPrefix 與 7.15.0 基準，不同才會真的編譯；本 repo 是 7.20.0，所以會真編。
 name: Build Check
 
 on:
