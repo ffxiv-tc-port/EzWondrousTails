@@ -54,3 +54,5 @@ jobs:
           generate_release_notes: true
 
 # workflow 索引觸發：GitHub 只在 push 實際變動到 workflow 檔本身時才建索引。
+
+# 2026-08-16: repo 重建後 workflow_dispatch-only workflow 未被 Actions 重新註冊,touch 本檔強制重掃
