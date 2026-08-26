@@ -1,0 +1,34 @@
+# 台服 (TC) 建置檢查（ezWondrousTails / InternalName: WondrousTailsSolver）。
+# Dalamud 釘在 API13 (dalamud-pin-v13.0.0.16)，外掛必須是 net9.0-windows7.0。
+name: Build Check
+
+on:
+  push:
+    branches:
+      - 'tc-7.20'
+    tags-ignore:
+      - "v*"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 9.x
+      - name: Download Dalamud (pinned TC-compatible build)
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri https://github.com/ffxiv-tc-port/DalamudPluginsTC/releases/download/dalamud-pin-v13.0.0.16/dalamud-api13-net9.zip -OutFile dalamud-pinned.zip
+          Expand-Archive -Force dalamud-pinned.zip "$env:AppData\FFXIVSimpleLauncher\Dalamud\Injector\"
+          Expand-Archive -Force dalamud-pinned.zip "$env:AppData\xivlauncher\Addon\Hooks\dev\"
+      - name: Build with dotnet
+        run: dotnet build --configuration Release WondrousTailsSolver/WondrousTailsSolver.csproj -p:DalamudLibPath="$env:AppData\FFXIVSimpleLauncher\Dalamud\Injector\"
+
+# workflow 索引觸發：GitHub 只在 push 實際變動到 workflow 檔本身時才建索引。
