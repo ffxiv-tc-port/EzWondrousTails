@@ -23,7 +23,7 @@
 
 - 分支基準：上游最後一個仍在 Dalamud API 13 的版本。上游其後已改到新版 API 並封存（archived），
   不會再有更新，也不要 rebase 到 `master`。
-- `KamiToolKit` 子模組改指 `ffxiv-tc-port/KamiToolKit` 分支 `tc-dailyduty-api13-pin`
+- `KamiToolKit` 子模組改指 `ffxiv-tc-port/KamiToolKit` 分支 `tc-7.30`
   ——上游釘的版本在這個 Dalamud 版本上有相容性問題，org fork 已修好（與 DailyDuty 共用同一份）。
 - 介面文字走 `LanguageChineseTraditional.ini`（英文原文當 key）。
 
